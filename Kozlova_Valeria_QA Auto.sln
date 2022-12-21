@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kozlova_Valeria_QA Auto_task_1", "Kozlova_Valeria_QA Auto_task_1.csproj", "{8AE89969-6DA4-41C2-B435-82E5178DAE08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kozlova_Valeria_QA Auto", "Kozlova_Valeria_QA Auto.csproj", "{8AE89969-6DA4-41C2-B435-82E5178DAE08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
