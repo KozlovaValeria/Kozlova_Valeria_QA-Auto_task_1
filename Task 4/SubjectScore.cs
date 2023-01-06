@@ -2,12 +2,14 @@
 {
     internal class SubjectScore
     {
-        public int Score;
-        public string SubjectName;
+        private string _subjectName;
+        private int _score;
+        public int Score { get { return _score; } }
+        public string SubjectName { get { return _subjectName; } }
         public SubjectScore(int score, string subjectName)
         {
-            Score = score;
-            SubjectName = subjectName;
+            _score = score;
+            _subjectName = subjectName;
         }
     }
 }

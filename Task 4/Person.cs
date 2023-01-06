@@ -2,9 +2,9 @@
 {
     internal class Person
     {
-        public string FirstName;
-        public string LastName;
-        public Adress Adress;
+        public string FirstName { get; set; } 
+        public string LastName { get; set; }
+        public Adress Adress { get; set; }
 
         public Person(string firstName, string lastName, Adress adress) 
         {
