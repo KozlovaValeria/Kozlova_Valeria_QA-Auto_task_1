@@ -1,18 +1,17 @@
 ﻿using System.Runtime.ExceptionServices;
 
-namespace Task_4
+namespace Task_5
 {
     internal class UniversityEmployee
     {
-        private Person _person;
-        private int _taxID;
-        public Person Person { get { return _person; } }
-        public int TaxID { get { return _taxID; } }
+    
+        public Person Person { get; set; }
+        public int TaxID { get; set; }
 
         public UniversityEmployee(Person person,int taxID)
         {
-            _person = person;
-            _taxID = taxID;
+            Person = person;
+            TaxID = taxID;
         }
 
         public virtual string GetOfficialDuties()

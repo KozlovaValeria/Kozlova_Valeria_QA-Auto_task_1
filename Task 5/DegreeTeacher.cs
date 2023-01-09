@@ -1,5 +1,5 @@
 ﻿
-namespace Task_4
+namespace Task_5
 {
     internal class DegreeTeacher : Teacher
     {

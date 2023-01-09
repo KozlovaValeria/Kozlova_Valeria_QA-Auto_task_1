@@ -1,6 +1,6 @@
 ﻿using System.Runtime.ExceptionServices;
 
-namespace Task_4
+namespace Task_5
 {
     internal class Teacher : UniversityEmployee
     {
