@@ -2,21 +2,30 @@
 
 namespace Task_5
 {
-    internal class UniversityEmployee
+    internal abstract class UniversityEmployee
     {
-    
+        private int _taxID;
         public Person Person { get; set; }
-        public int TaxID { get; set; }
-
+        public int TaxID
+        {
+            get
+            {
+                return _taxID;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    _taxID = value;
+                }
+            }
+        }
         public UniversityEmployee(Person person,int taxID)
         {
             Person = person;
-            TaxID = taxID;
+            _taxID = taxID;
         }
-
-        public virtual string GetOfficialDuties()
-        {
-            return $"{Person.FirstName} {Person.LastName} is an university employee";
-        }
+        public abstract string GetOfficialDuties();
+        
     }
 }

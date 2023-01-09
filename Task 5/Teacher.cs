@@ -9,7 +9,7 @@ namespace Task_5
         public Teacher(Course course, Person person, int taxID): base(person, taxID)
         {
             Course = course;
-         }
+        }
 
         public override string GetOfficialDuties()
         {

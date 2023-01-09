@@ -1,16 +1,14 @@
 ﻿namespace Task_5
 {
     internal class Course
-    {
-        private string _nameCourse;
-        private string _descriptionCourse;
-        public string NameCourse { get { return _nameCourse; } }
-        public string DescriptionCourse { get { return _descriptionCourse; } }
+    { 
+        public string NameCourse { get; set; }
+        public string DescriptionCourse { get; set; }
 
         public Course(string nameCourse, string descriptionCourse)
         {
-            _nameCourse = nameCourse;
-            _descriptionCourse = descriptionCourse;
+            NameCourse = nameCourse;
+            DescriptionCourse = descriptionCourse;
 
         }
     }

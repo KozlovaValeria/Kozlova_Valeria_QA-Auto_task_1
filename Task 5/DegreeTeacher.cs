@@ -3,10 +3,8 @@ namespace Task_5
 {
     internal class DegreeTeacher : Teacher
     {
-        private string _scientificTitle;
-        private string _teacherTitle;
-        public string ScientificTitle { get { return _scientificTitle; } }
-        public string TeacherTitle { get { return _teacherTitle; } }
+        public string ScientificTitle { get; set; }
+        public string TeacherTitle { get; set; }
 
         public DegreeTeacher(
             string scientificTitle,
@@ -15,8 +13,8 @@ namespace Task_5
             Person person,
             int taxID) : base(course, person, taxID)
         {
-            _scientificTitle = scientificTitle;
-            _teacherTitle = teacherTitle;
+            ScientificTitle = scientificTitle;
+            TeacherTitle = teacherTitle;
         }
         public override string GetOfficialDuties()
         {
