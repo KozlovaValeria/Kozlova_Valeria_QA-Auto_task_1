@@ -1,5 +1,4 @@
-﻿
-namespace Task_5
+﻿namespace Task_5
 {
     internal class DegreeTeacher : Teacher
     {
@@ -11,7 +10,7 @@ namespace Task_5
             string teacherTitle,
             Course course,
             Person person,
-            int taxID) : base(course, person, taxID)
+            int taxId) : base(course, person, taxId)
         {
             ScientificTitle = scientificTitle;
             TeacherTitle = teacherTitle;

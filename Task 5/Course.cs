@@ -9,7 +9,6 @@
         {
             NameCourse = nameCourse;
             DescriptionCourse = descriptionCourse;
-
         }
     }
 }

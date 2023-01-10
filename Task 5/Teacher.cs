@@ -1,12 +1,10 @@
-﻿using System.Runtime.ExceptionServices;
-
-namespace Task_5
+﻿namespace Task_5
 {
     internal class Teacher : UniversityEmployee
     {
         public Course Course { get; set; }
 
-        public Teacher(Course course, Person person, int taxID): base(person, taxID)
+        public Teacher(Course course, Person person, int taxId): base(person, taxId)
         {
             Course = course;
         }

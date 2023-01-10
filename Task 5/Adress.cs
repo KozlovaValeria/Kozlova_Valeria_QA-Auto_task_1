@@ -41,6 +41,5 @@
             Street = street; 
             City = city;
         }
-
     }
 }

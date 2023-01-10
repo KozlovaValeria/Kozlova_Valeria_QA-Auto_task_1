@@ -1,31 +1,28 @@
-﻿using System.Runtime.ExceptionServices;
-
-namespace Task_5
+﻿namespace Task_5
 {
     internal abstract class UniversityEmployee
     {
-        private int _taxID;
+        private int _taxId;
         public Person Person { get; set; }
-        public int TaxID
+        public int TaxId
         {
             get
             {
-                return _taxID;
+                return _taxId;
             }
             set
             {
                 if (value > 0)
                 {
-                    _taxID = value;
+                    _taxId = value;
                 }
             }
         }
-        public UniversityEmployee(Person person,int taxID)
+        public UniversityEmployee(Person person,int taxId)
         {
             Person = person;
-            _taxID = taxID;
+            _taxId = taxId;
         }
-        public abstract string GetOfficialDuties();
-        
+        public abstract string GetOfficialDuties();    
     }
 }
