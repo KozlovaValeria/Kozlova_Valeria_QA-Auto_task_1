@@ -1,4 +1,5 @@
 ﻿using Task_5;
+using Task_6;
 
 Teacher teacher1 = new Teacher(
     new Course("Math", "Math for everyone"),
@@ -62,17 +63,37 @@ List<UniversityEmployee> employees = new List<UniversityEmployee>
     degreeteacher2
 };
 
-foreach (UniversityEmployee employee in employees)
+List<Building> buildings = new List<Building>
 {
-    Console.WriteLine(employee.GetOfficialDuties());
-}
-Console.WriteLine("Teachers: ");
+    new Building(32,"Department of Math",
+                    new List<Room>
+                    {
+                        new Room(112, "lecture"),
+                        new Room(115, "laboratory"),
+                        new Room(118, "seminary"),
+                        new Room(117, "auxiliary")
+                    }),
 
-foreach (UniversityEmployee employee in employees)
-{
-    if (employee is Teacher)
-    {
-        Console.WriteLine($"{employee.Person.FirstName}{employee.Person.LastName}");
-    }
-}
+     new Building(42,"Department of Biology",
+                    new List <Room>
+                    {
+                        new Room(201, "lecture"),
+                        new Room(204, "laboratory"),
+                        new Room(203, "seminary"),
+                        new Room(205, "auxiliary")
+                    }),
 
+     new Building(67, "Department of Informatics",
+                    new List <Room>
+                    {
+                        new Room(301, "lecture"),
+                        new Room(302, "laboratory"),
+                        new Room(303, "seminary"),
+                        new Room(304, "auxiliary")
+                    })
+};
+
+Person rector = new Person("Roman","Kaktysh",new Adress(67, 105, "Shishkova", "Minsk"));
+
+Adress legalAdress = new Adress(103, 35, "Bogdanovicha", "Minsk");
+University BSUIR = new University(employees, rector,buildings, legalAdress);
