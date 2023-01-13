@@ -53,7 +53,7 @@ DegreeTeacher degreeteacher2 = new DegreeTeacher(
         new Adress(77, 341, "Repina", "Gomel")),
     121189);
 
-List<UniversityEmployee> employees = new List<UniversityEmployee>()
+List<UniversityEmployee> employees = new List<UniversityEmployee>
 {
     teacher1,
     teacher2,
@@ -68,28 +68,28 @@ List<Building> buildings = new List<Building>
     new Building(32,"Department of Math",
                     new List<Room>
                     {
-                        new Room(112, "Lecture"),
-                        new Room(115, "Laboratory"),
-                        new Room(118, "Seminary"),
-                        new Room(117, "Common")
+                        new Room(1, "Lecture"),
+                        new Room(2, "Laboratory"),
+                        new Room(3, "Seminary"),
+                        new Room(4, "Common")
                     }),
 
      new Building(42,"Department of Biology",
                     new List <Room>
                     {
-                        new Room(201, "Lecture"),
-                        new Room(204, "Laboratory"),
-                        new Room(203, "Seminary"),
-                        new Room(205, "Common")
+                        new Room(5, "Lecture"),
+                        new Room(6, "Laboratory"),
+                        new Room(7, "Seminary"),
+                        new Room(8, "Common")
                     }),
 
      new Building(67, "Department of Informatics",
                     new List <Room>
                     {
-                        new Room(301, "Lecture"),
-                        new Room(302, "Laboratory"),
-                        new Room(303, "Seminary"),
-                        new Room(304, "Common")
+                        new Room(9, "Lecture"),
+                        new Room(10, "Laboratory"),
+                        new Room(11, "Seminary"),
+                        new Room(12, "Common")
                     })
 };
 
