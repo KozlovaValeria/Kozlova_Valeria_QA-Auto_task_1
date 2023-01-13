@@ -2,11 +2,25 @@
 {
     public class Room
     {
-        public int NumberRoom { get; set; }
+        private int _numberRoom;
+        public int NumberRoom
+        {
+            get
+            {
+                return _numberRoom;
+            }
+            set
+            {
+                if (value > 0 && value < 10000)
+                {
+                    _numberRoom = value;
+                }
+            }
+        }
         public string Appointment { get; set; }
         public Room(int numberRoom, string appointment)
         {
-            NumberRoom = numberRoom;
+            _numberRoom = numberRoom;
             Appointment = appointment;
         }
     }
