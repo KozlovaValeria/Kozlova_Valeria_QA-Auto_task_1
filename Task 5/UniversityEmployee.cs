@@ -23,6 +23,15 @@
             Person = person;
             _taxId = taxId;
         }
-        public abstract string GetOfficialDuties();    
+        public abstract string GetOfficialDuties();
+        public override bool Equals(object? obj)
+        {
+            if (obj is UniversityEmployee universityEmployee)
+            {
+                return universityEmployee.Person.Equals(Person) &&
+                       universityEmployee.TaxId == TaxId;
+            }
+            return false;
+        }
     }
 }

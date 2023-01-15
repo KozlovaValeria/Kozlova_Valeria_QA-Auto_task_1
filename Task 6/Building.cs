@@ -1,6 +1,8 @@
-﻿namespace Task_6
+﻿using Task_5;
+
+namespace Task_6
 {
-    internal class Building
+    public class Building
     {
         private int _numberBuilding;
         public int NumberBuilding {
@@ -24,6 +26,16 @@
             _numberBuilding = numberBuilding;
             NameBuilding = nameBuilding;
             Rooms = rooms;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Building building)
+            {
+                return building.NumberBuilding == NumberBuilding &&
+                       building.NameBuilding == NameBuilding;
+            }
+            return false;
         }
     }
 }

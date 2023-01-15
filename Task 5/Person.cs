@@ -12,5 +12,15 @@
             LastName = lastName;
             Adress = adress;
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj is Person person)
+            {
+                return person.FirstName == FirstName &&
+                       person.LastName == LastName &&
+                       person.Adress.Equals(Adress);
+            }
+            return false;
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Task_5;
 namespace Task_6
 {
-    internal class University
+    public class University
     {
         public List<UniversityEmployee> Employees { get; set; }
         public Person Rector { get; set; }
@@ -18,5 +18,28 @@ namespace Task_6
             Buildings = buildings;
             LegalAdress = legalAdress;
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj is University university)
+            {
+                return university.Rector.Equals(Rector) &&
+                       university.LegalAdress.Equals(LegalAdress);
+            }
+            return false;
+        }
+        public bool AddEmployee(UniversityEmployee employee)
+        {
+            foreach(UniversityEmployee existingEmployee in Employees)
+            {
+                if (existingEmployee.Equals(employee)) 
+                {
+                    return false;
+                }
+            }
+            Employees.Add(employee);
+            return true;
+        } 
+        
+     
     }
 }

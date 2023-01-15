@@ -11,5 +11,14 @@
         {
             return $"{Person.FirstName} {Person.LastName}, {Position}";
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj is SupportStaff supportStaff)
+            {
+                return supportStaff.Position == Position &&
+                       supportStaff.TaxId == TaxId;
+            }
+            return this == obj;
+        }
     }
  }

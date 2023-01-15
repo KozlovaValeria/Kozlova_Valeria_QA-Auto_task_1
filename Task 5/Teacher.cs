@@ -13,5 +13,15 @@
         {
             return $"{Person.FirstName}{Person.LastName}, course is {Course.NameCourse}";
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj is Teacher teacher)
+            {
+                return teacher.Course.Equals(Course) &&
+                    teacher.Person.Equals(Person) &&
+                    teacher.TaxId == TaxId;
+            }
+            return false;
+        }
     }
 }

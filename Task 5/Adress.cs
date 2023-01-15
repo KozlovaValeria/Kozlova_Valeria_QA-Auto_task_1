@@ -41,5 +41,16 @@
             Street = street; 
             City = city;
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj is Adress adress)
+            {
+                return adress.City == City &&
+                       adress.Street == Street &&
+                       adress.Flat == Flat &&
+                       adress.Home == Home;
+            }
+            return false;
+        }
     }
 }

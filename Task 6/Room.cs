@@ -23,5 +23,14 @@
             _numberRoom = numberRoom;
             Appointment = appointment;
         }
+        public override bool Equals(object? obj)
+        {
+            if (obj is Room room)
+            {
+                return room.NumberRoom == NumberRoom &&
+                       room.Appointment == Appointment;
+            }
+            return false;
+        }
     }
 }
