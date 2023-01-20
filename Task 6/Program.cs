@@ -65,32 +65,38 @@ List<UniversityEmployee> employees = new List<UniversityEmployee>
 
 List<Building> buildings = new List<Building>
 {
-    new Building(32,"Department of Math",
-                    new List<Room>
-                    {
-                        new Room(101, "Lecture"),
-                        new Room(102, "Laboratory"),
-                        new Room(103, "Seminary"),
-                        new Room(104, "Common")
-                    }),
+    new Building(
+        32,
+        "Department of Math",
+        new List<Room>
+        {
+            new Room(101, "Lecture"),
+            new Room(102, "Laboratory"),
+            new Room(103, "Seminary"),
+            new Room(104, "Common")
+        }),
 
-     new Building(42,"Department of Biology",
-                    new List <Room>
-                    {
-                        new Room(205, "Lecture"),
-                        new Room(206, "Laboratory"),
-                        new Room(207, "Seminary"),
-                        new Room(208, "Common")
-                    }),
+     new Building(
+         42,
+         "Department of Biology",
+         new List <Room>
+         {
+             new Room(205, "Lecture"),
+             new Room(206, "Laboratory"),
+             new Room(207, "Seminary"),
+             new Room(208, "Common")
+         }),
 
-     new Building(67, "Department of Informatics",
-                    new List <Room>
-                    {
-                        new Room(309, "Lecture"),
-                        new Room(310, "Laboratory"),
-                        new Room(311, "Seminary"),
-                        new Room(312, "Common")
-                    })
+     new Building(
+         67, 
+         "Department of Informatics",
+         new List <Room>
+         {
+             new Room(309, "Lecture"),
+             new Room(310, "Laboratory"),
+             new Room(311, "Seminary"),
+             new Room(312, "Common")
+         })
 };
 
 Rector rector1 = new Rector(

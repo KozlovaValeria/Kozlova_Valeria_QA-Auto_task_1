@@ -2,6 +2,6 @@
 {
     public abstract class UniversityAsset
     {
-        public int InventoryNumber;
+        public int InventoryNumber { get; set; }
     }
 }
