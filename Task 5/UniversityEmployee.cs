@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal abstract class UniversityEmployee
+    public abstract class UniversityEmployee
     {
         private int _taxId;
         public Person Person { get; set; }

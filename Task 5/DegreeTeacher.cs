@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal class DegreeTeacher : Teacher
+   public class DegreeTeacher : Teacher
     {
         public string ScientificTitle { get; set; }
         public string TeacherTitle { get; set; }

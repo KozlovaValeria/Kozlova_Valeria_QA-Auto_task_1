@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal class Adress
+    public class Adress
     {
         private int _home;
         private int _flat;

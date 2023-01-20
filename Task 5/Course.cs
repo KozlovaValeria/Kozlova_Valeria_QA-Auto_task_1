@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal class Course
+    public class Course
     { 
         public string NameCourse { get; set; }
         public string DescriptionCourse { get; set; }
