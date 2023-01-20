@@ -1,6 +1,8 @@
-﻿namespace Task_5
+﻿using System.IO;
+
+namespace Task_5
 {
-    internal class Person
+    public class Person
     {
         public string FirstName { get; set; } 
         public string LastName { get; set; }
@@ -11,6 +13,17 @@
             FirstName = firstName;
             LastName = lastName;
             Adress = adress;
+        }
+        public override bool Equals(object? obj)
+        {
+            return obj is Person person
+                && person.FirstName == FirstName 
+                && person.LastName == LastName 
+                && person.Adress.Equals(Adress);
+        }
+        public override int GetHashCode()
+        {
+            return FirstName.GetHashCode() + LastName.GetHashCode() + Adress.GetHashCode();
         }
     }
 }

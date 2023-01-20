@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal abstract class UniversityEmployee
+    public abstract class UniversityEmployee
     {
         private int _taxId;
         public Person Person { get; set; }
@@ -23,6 +23,16 @@
             Person = person;
             _taxId = taxId;
         }
-        public abstract string GetOfficialDuties();    
+        public abstract string GetOfficialDuties();
+        public override bool Equals(object? obj)
+        {
+            return obj is UniversityEmployee universityEmployee 
+                && universityEmployee.Person.Equals(Person)
+                && universityEmployee.TaxId == TaxId;
+        }
+        public override int GetHashCode()
+        {
+            return Person.GetHashCode() + TaxId.GetHashCode();
+        }
     }
 }
