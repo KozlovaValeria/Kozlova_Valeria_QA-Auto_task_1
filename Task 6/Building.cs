@@ -2,7 +2,7 @@
 
 namespace Task_6
 {
-    public class Building
+    public class Building : UniversityAsset
     {
         private int _numberBuilding;
         public int NumberBuilding {
@@ -30,12 +30,13 @@ namespace Task_6
 
         public override bool Equals(object? obj)
         {
-            if (obj is Building building)
-            {
-                return building.NumberBuilding == NumberBuilding &&
-                       building.NameBuilding == NameBuilding;
-            }
-            return false;
+            return obj is Building building
+                && building.NumberBuilding == NumberBuilding
+                && building.NameBuilding == NameBuilding;
+        }
+        public override int GetHashCode()
+        {
+            return NumberBuilding.GetHashCode() + NameBuilding.GetHashCode();
         }
     }
 }

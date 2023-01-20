@@ -43,14 +43,15 @@
         }
         public override bool Equals(object? obj)
         {
-            if (obj is Adress adress)
-            {
-                return adress.City == City &&
-                       adress.Street == Street &&
-                       adress.Flat == Flat &&
-                       adress.Home == Home;
-            }
-            return false;
+            return obj is Adress adress
+                && adress.City == City
+                && adress.Street == Street
+                && adress.Flat == Flat
+                && adress.Home == Home;
+        }
+        public override int GetHashCode()
+        {
+            return City.GetHashCode() + Street.GetHashCode() + Flat.GetHashCode() + Home.GetHashCode();
         }
     }
 }

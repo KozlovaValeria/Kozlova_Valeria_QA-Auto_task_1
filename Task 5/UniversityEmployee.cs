@@ -26,12 +26,13 @@
         public abstract string GetOfficialDuties();
         public override bool Equals(object? obj)
         {
-            if (obj is UniversityEmployee universityEmployee)
-            {
-                return universityEmployee.Person.Equals(Person) &&
-                       universityEmployee.TaxId == TaxId;
-            }
-            return false;
+            return obj is UniversityEmployee universityEmployee
+                && universityEmployee.Person.Equals(Person)
+                && universityEmployee.TaxId == TaxId;
+        }
+        public override int GetHashCode()
+        {
+            return Person.GetHashCode() + TaxId.GetHashCode();
         }
     }
 }

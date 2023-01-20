@@ -25,12 +25,13 @@
         }
         public override bool Equals(object? obj)
         {
-            if (obj is Room room)
-            {
-                return room.NumberRoom == NumberRoom &&
-                       room.Appointment == Appointment;
-            }
-            return false;
+            return obj is Room room
+                && room.NumberRoom == NumberRoom
+                && room.Appointment == Appointment;
+        }
+        public override int GetHashCode()
+        {
+            return NumberRoom.GetHashCode() + Appointment.GetHashCode();
         }
     }
 }

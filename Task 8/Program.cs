@@ -96,10 +96,15 @@ List<Building> buildings = new List<Building>
                     })
 };
 
-Person rector = new Person("Roman", "Kaktysh", new Adress(67, 105, "Shishkova", "Minsk"));
+Rector rector1 = new Rector(
+    new Person(
+        "Roman",
+        " Kaktysh",
+        new Adress(87, 9, "Bogdanovicha", "Minsk")),
+    653224);
 
 Adress legalAdress = new Adress(103, 35, "Bogdanovicha", "Minsk");
-University BGUIR = new University(employees, rector, buildings, legalAdress);
+University BSUIR = new University(employees, rector1, buildings, legalAdress);
 
 DegreeTeacher newTeacher = new DegreeTeacher(
     "Candidate of science",
@@ -111,8 +116,7 @@ DegreeTeacher newTeacher = new DegreeTeacher(
         new Adress(99, 5, "Repina", "Minsk")),
     222222);
 
-
-Console.WriteLine(BGUIR.AddEmployee(newTeacher));
+Console.WriteLine(BSUIR.AddEmployee(newTeacher));
 
 //task 5.1
 
@@ -120,10 +124,14 @@ Console.WriteLine("Lastname start with I:");
 
 var letterEmployees = new List<UniversityEmployee>();
 
-letterEmployees = employees.Where(x => x.Person.LastName.StartsWith("I")).OrderBy(x => x.TaxId).ToList();
+letterEmployees = employees
+    .Where(x => x.Person.LastName.StartsWith("I"))
+    .OrderBy(x => x.TaxId)
+    .ToList();
+
 foreach (UniversityEmployee employee in letterEmployees)
 {
-    Console.WriteLine($"{employee.Person.LastName + " " + employee.TaxId}");
+    Console.WriteLine($"{employee.Person.LastName} {employee.TaxId}");
 }
 
 //task 5.2
@@ -131,22 +139,27 @@ Console.WriteLine("Teachers read course Math:");
 
 var courseEmployees = new List<UniversityEmployee>();
 
-courseEmployees = employees.Where(x => x is Teacher teacher && teacher.Course.NameCourse == "Math").ToList();
+courseEmployees = employees
+    .Where(x => x is Teacher teacher && teacher.Course.NameCourse == "Math")
+    .ToList();
+
 foreach(UniversityEmployee employee in courseEmployees)
 {
-   Console.WriteLine($"{employee.Person.FirstName + " " + employee.Person.LastName}");
+   Console.WriteLine($"{employee.Person.FirstName} {employee.Person.LastName}");
 }
 
 //task 5.3 
 
 Console.WriteLine("TaxId and position:");
 
-var FilteredPositionList = employees.Select(universityEmployee => universityEmployee.TaxId.ToString() + " " +
-universityEmployee.GetOfficialDuties()).ToList();
+var FilteredPositionList = employees
+    .Select(universityEmployee => universityEmployee.TaxId.ToString() + " " + 
+        universityEmployee.GetOfficialDuties())
+    .ToList();
 
 foreach (var taxIdPosition in FilteredPositionList)
 {
-    Console.WriteLine($"{taxIdPosition}");
+    Console.WriteLine(taxIdPosition);
 }
 
 //task 5.4
@@ -154,7 +167,12 @@ foreach (var taxIdPosition in FilteredPositionList)
 Console.WriteLine("Buildings with number room 101:");
 
 var filteredBuildings = new List<Building>();
-filteredBuildings = buildings.Where(x => x.Rooms.Select(room => room.NumberRoom).ToList().Contains(101)).ToList();
+
+filteredBuildings = buildings
+    .Where(x => x.Rooms.
+        Select(room => room.NumberRoom)
+        .Any(y => y == 101))
+    .ToList();
 
 foreach (Building building in filteredBuildings)
 {
@@ -163,8 +181,9 @@ foreach (Building building in filteredBuildings)
 
 //task 5.5
 
-var maxCountRoom = buildings.Select(x => x.Rooms.Count).Max();
-var targetBuildings = buildings.Where(x => x.Rooms.Count == maxCountRoom);
+var targetBuildings = buildings
+    .Where(x => x.Rooms.Count == buildings.Select(x => x.Rooms.Count)
+    .Max());
 
 foreach (Building building in targetBuildings)
 {
@@ -173,7 +192,9 @@ foreach (Building building in targetBuildings)
 
 //task 5.6
 
-var groupedEmployees = employees.GroupBy(x => x.Person.LastName);
-int lastNamesMaxCount = groupedEmployees.Select(x => x.Count()).Max();
-var lastNameMaxCount = groupedEmployees.Where(x => x.Count() == lastNamesMaxCount).Select(x => x.Key).FirstOrDefault();
-Console.WriteLine("LastName: " + lastNameMaxCount + " " +  "Employees: " + lastNamesMaxCount );
+var popularLastName = employees
+    .GroupBy(x => x.Person.LastName)
+    .MaxBy(y => y.Count());
+    
+Console.WriteLine(popularLastName.Key + " " +  popularLastName.Count());
+
