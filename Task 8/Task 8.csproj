@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Task_8</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Task 4\Task 4.csproj" />
+    <ProjectReference Include="..\Task 5\Task 5.csproj" />
+    <ProjectReference Include="..\Task 6\Task 6.csproj" />
+    <ProjectReference Include="..\Task_7\Task_7.csproj" />
+  </ItemGroup>
+
+</Project>
