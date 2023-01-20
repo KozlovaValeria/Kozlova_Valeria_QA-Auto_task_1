@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal class Adress
+    public class Adress
     {
         private int _home;
         private int _flat;
@@ -40,6 +40,18 @@
             _flat = flat;
             Street = street; 
             City = city;
+        }
+        public override bool Equals(object? obj)
+        {
+            return obj is Adress adress
+                && adress.City == City
+                && adress.Street == Street
+                && adress.Flat == Flat
+                && adress.Home == Home;
+        }
+        public override int GetHashCode()
+        {
+            return City.GetHashCode() + Street.GetHashCode() + Flat.GetHashCode() + Home.GetHashCode();
         }
     }
 }

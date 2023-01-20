@@ -25,14 +25,14 @@ Person person5 = new Person(
     "Petrov", 
      new Adress(73, 29, "Lesnaya", "Vitebsk"));
 
-Candidate candidate1 = new Candidate(person1, new SubjectScore[]
+Candidate candidate1 = new Candidate(person1, new List<SubjectScore>
 {
     new SubjectScore(87, "Math"),
     new SubjectScore(76, "Physics"),
     new SubjectScore(98, "Language")
 });
 
-Candidate candidate2 = new Candidate(person2, new SubjectScore[] 
+Candidate candidate2 = new Candidate(person2, new List<SubjectScore> 
 {
     new SubjectScore(65, "Math"),
     new SubjectScore(98, "Physics"),
@@ -40,28 +40,28 @@ Candidate candidate2 = new Candidate(person2, new SubjectScore[]
 });
     
 
-Candidate candidate3 = new Candidate(person3, new SubjectScore[]
+Candidate candidate3 = new Candidate(person3, new List<SubjectScore>
 {
     new SubjectScore(77, "Math"),
     new SubjectScore(100, "Physics"),
     new SubjectScore(85, "Language")
 });
 
-Candidate candidate4 = new Candidate(person4, new SubjectScore[] 
+Candidate candidate4 = new Candidate(person4, new List<SubjectScore> 
 {
     new SubjectScore(99, "Math"),
     new SubjectScore(76, "Physics"),
     new SubjectScore(88, "Language")
 });
 
-Candidate candidate5 = new Candidate(person5, new SubjectScore[]
+Candidate candidate5 = new Candidate(person5, new List<SubjectScore>
 {
     new SubjectScore(65, "Math"),
     new SubjectScore(98, "Physics"),
     new SubjectScore(54, "Language")
 });
 
-Candidate[] candidates = 
+List<Candidate> candidates = new List<Candidate>
 {
     candidate1,
     candidate2,
@@ -74,7 +74,7 @@ static void ShownStreets(Adress shownStreets)
 {
     Console.WriteLine(" Street: " + shownStreets.Street);
 }
-static int GetMaxScore(Candidate[] scoreCandidates, string subj)
+static int GetMaxScore(List<Candidate> scoreCandidates, string subj)
 {
     int maxScore = 0;
     foreach (Candidate candidate in scoreCandidates)

@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    internal class Teacher : UniversityEmployee
+    public class Teacher : UniversityEmployee
     {
         public Course Course { get; set; }
 
