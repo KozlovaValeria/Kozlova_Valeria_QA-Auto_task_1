@@ -1,6 +1,6 @@
 ﻿namespace Task_6
 {
-    internal class Building
+    public class Building : UniversityAsset
     {
         private int _numberBuilding;
         public int NumberBuilding {

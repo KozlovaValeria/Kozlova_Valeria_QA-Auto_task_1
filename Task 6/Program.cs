@@ -93,7 +93,12 @@ List<Building> buildings = new List<Building>
                     })
 };
 
-Person rector = new Person("Roman","Kaktysh",new Adress(67, 105, "Shishkova", "Minsk"));
+Rector rector1 = new Rector(
+    new Person(
+        "Roman",
+        " Kaktysh",
+        new Adress(87, 9, "Bogdanovicha", "Minsk")),
+    653224);
 
 Adress legalAdress = new Adress(103, 35, "Bogdanovicha", "Minsk");
-University BSUIR = new University(employees, rector,buildings, legalAdress);
+University BSUIR = new University(employees, rector1,buildings, legalAdress);
