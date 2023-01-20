@@ -22,16 +22,5 @@
                    $"scientific title: {ScientificTitle}," +
                    $" teacher title is {TeacherTitle}, course: {Course.NameCourse}";
         }
-
-        public override bool Equals(object? obj)
-        {
-            if (obj is DegreeTeacher degreeTeacher)
-            {
-                return degreeTeacher.ScientificTitle == ScientificTitle &&
-                       degreeTeacher.TeacherTitle == TeacherTitle &&
-                       degreeTeacher.TaxId == TaxId;            
-            }
-            return false;
-        }
     }
 }

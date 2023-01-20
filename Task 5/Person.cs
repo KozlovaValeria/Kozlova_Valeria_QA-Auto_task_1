@@ -1,4 +1,6 @@
-﻿namespace Task_5
+﻿using System.IO;
+
+namespace Task_5
 {
     public class Person
     {
@@ -14,13 +16,14 @@
         }
         public override bool Equals(object? obj)
         {
-            if (obj is Person person)
-            {
-                return person.FirstName == FirstName &&
-                       person.LastName == LastName &&
-                       person.Adress.Equals(Adress);
-            }
-            return false;
+            return obj is Person person
+                && person.FirstName == FirstName 
+                && person.LastName == LastName 
+                && person.Adress.Equals(Adress);
+        }
+        public override int GetHashCode()
+        {
+            return FirstName.GetHashCode() + LastName.GetHashCode() + Adress.GetHashCode();
         }
     }
 }

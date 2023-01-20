@@ -4,12 +4,12 @@ namespace Task_6
     public class University
     {
         public List<UniversityEmployee> Employees { get; set; }
-        public Person Rector { get; set; }
+        public Rector Rector { get; set; }
         public List<Building> Buildings {get;set;}
         public Adress LegalAdress { get; set; }
         public University(
             List<UniversityEmployee> employees, 
-            Person rector, 
+            Rector rector, 
             List <Building> buildings, 
             Adress legalAdress)
         {
@@ -20,26 +20,22 @@ namespace Task_6
         }
         public override bool Equals(object? obj)
         {
-            if (obj is University university)
-            {
-                return university.Rector.Equals(Rector) &&
-                       university.LegalAdress.Equals(LegalAdress);
-            }
-            return false;
+            return obj is University university
+                && university.Rector.Equals(Rector) 
+                && university.LegalAdress.Equals(LegalAdress);
+        }
+        public override int GetHashCode()
+        {
+            return Rector.GetHashCode() + LegalAdress.GetHashCode();
         }
         public bool AddEmployee(UniversityEmployee employee)
         {
-            foreach(UniversityEmployee existingEmployee in Employees)
+            if (Employees.Contains(employee)) 
             {
-                if (existingEmployee.Equals(employee)) 
-                {
-                    return false;
-                }
+                return false;
             }
             Employees.Add(employee);
             return true;
-        } 
-        
-     
+        }   
     }
 }
