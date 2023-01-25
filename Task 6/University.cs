@@ -37,5 +37,21 @@ namespace Task_6
             Employees.Add(employee);
             return true;
         }
+        public bool AddUniversityEmployee(UniversityEmployee employee)
+        {
+            if (CheckTaxId(employee.TaxId))
+            {
+                Employees.Add(employee);
+                return true;
+            }
+            else
+            {
+                return false;
+            }    
+        }
+        private bool CheckTaxId(int taxId)
+        {
+            return taxId > 0;
+        }
     }
 }
