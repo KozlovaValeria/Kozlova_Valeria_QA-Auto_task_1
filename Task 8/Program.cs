@@ -244,7 +244,6 @@ foreach (UniversityEmployee employee in newSortedList)
     Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
 }
 
-
 // LINQ 6 task OrderBy
 
 var sortedFirstLastName = BSUIR.Employees
@@ -255,7 +254,6 @@ foreach (UniversityEmployee employee in sortedFirstLastName)
 {
     Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
 }
-
 
 
 BSUIR.Employees.Sort(new NamesComparer(true));
