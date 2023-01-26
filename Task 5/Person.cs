@@ -13,6 +13,10 @@
             }
             set
             {
+                if(value == null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
                 _firstName = value;
                 CheckSumFirstLastName();
                 
@@ -27,6 +31,10 @@
             }
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
                 _lastName = value;
                 CheckSumFirstLastName();
           
@@ -41,6 +49,7 @@
             LastName = lastName;
             Adress = adress;  
         }
+
         public override bool Equals(object? obj)
         {
             return obj is Person person
@@ -48,20 +57,27 @@
                 && person.LastName == LastName
                 && person.Adress.Equals(Adress);
         }
+
         public override int GetHashCode()
         {
             return FirstName.GetHashCode() + LastName.GetHashCode() + Adress.GetHashCode();
         }
+
         public void CheckSumFirstLastName()
         {
             if (FirstName != null && LastName != null)
             {
-                if (FirstName.Length + LastName.Length > 15)
+                if (FullNameLength() > 15)
                 {
                     throw new ArgumentException();
                 }
             }
         }
+        public int FullNameLength()
+        {
+            return FirstName.Length + LastName.Length;  
+        }
+
     }
 }
 

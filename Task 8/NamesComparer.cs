@@ -9,13 +9,18 @@ namespace Task_8
         {
             IsReversed = isReversed;
         }  
-        public int Compare(UniversityEmployee? x, UniversityEmployee? y)
+        public int Compare(UniversityEmployee? leftItem, UniversityEmployee? rightItem)
         {
+            if(leftItem == null || rightItem == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             if(IsReversed)
             {
-                return (y.Person.FirstName.Length + y.Person.LastName.Length).CompareTo(x.Person.FirstName.Length + x.Person.LastName.Length);
+                return rightItem.Person.FullNameLength().CompareTo(leftItem.Person.FullNameLength());
             }
-            return (x.Person.FirstName.Length + x.Person.LastName.Length).CompareTo(y.Person.FirstName.Length + y.Person.LastName.Length);         
+            return leftItem.Person.FullNameLength().CompareTo(rightItem.Person.FullNameLength());         
         }
     }
 }

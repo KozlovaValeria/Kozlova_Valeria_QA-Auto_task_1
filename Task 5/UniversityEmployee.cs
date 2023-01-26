@@ -1,6 +1,6 @@
 ﻿namespace Task_5
 {
-    public abstract class UniversityEmployee : IComparable
+    public abstract class UniversityEmployee : IComparable<UniversityEmployee>
     {
         private int _taxId;
         public Person Person { get; set; }
@@ -42,10 +42,10 @@
             return Person.GetHashCode() + TaxId.GetHashCode();
         }
 
-        public int CompareTo(object? obj)
+        public int CompareTo(UniversityEmployee? employee)
         {
-           var employee = obj as UniversityEmployee;
-           return (employee.Person.FirstName + employee.Person.LastName).Length.CompareTo(Person.FirstName.Length + Person.LastName.Length);
+            if (employee == null) return -1;
+            return employee.Person.FullNameLength().CompareTo(Person.FullNameLength());
         }
     }
 }

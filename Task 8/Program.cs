@@ -234,10 +234,21 @@ catch(Exception ex)
     Console.WriteLine("you wrote so long name! " + ex.Message);
 }
 
+//Sort();
+
+var newSortedList = new List<UniversityEmployee>(BSUIR.Employees);
+newSortedList.Sort();
+
+foreach (UniversityEmployee employee in newSortedList)
+{
+    Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
+}
+
+
 // LINQ 6 task OrderBy
 
 var sortedFirstLastName = BSUIR.Employees
-    .OrderByDescending(x => x.Person.FirstName.Length + x.Person.LastName.Length)
+    .OrderByDescending(x => x.Person.FullNameLength())
     .ToList();
 
 foreach (UniversityEmployee employee in sortedFirstLastName)
@@ -245,7 +256,7 @@ foreach (UniversityEmployee employee in sortedFirstLastName)
     Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
 }
 
-////BSUIR.Employees.Sort(new NamesComparer());
+
 
 BSUIR.Employees.Sort(new NamesComparer(true));
 
@@ -254,11 +265,3 @@ foreach (UniversityEmployee employee in BSUIR.Employees)
     Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
 }
 
-//Sort();
-
-BSUIR.Employees.Sort();
-
-foreach (UniversityEmployee employee in BSUIR.Employees)
-{
-    Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
-}
