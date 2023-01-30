@@ -18,16 +18,23 @@ namespace Task_6
             Buildings = buildings;
             LegalAdress = legalAdress;
         }
+
+        public University()
+        {
+
+        }
         public override bool Equals(object? obj)
         {
             return obj is University university
                 && university.Rector.Equals(Rector)
                 && university.LegalAdress.Equals(LegalAdress);
         }
+
         public override int GetHashCode()
         {
             return Rector.GetHashCode() + LegalAdress.GetHashCode();
         }
+
         public bool AddEmployee(UniversityEmployee employee)
         {
             if (Employees.Contains(employee))
@@ -36,6 +43,24 @@ namespace Task_6
             }
             Employees.Add(employee);
             return true;
+        }
+
+        public bool AddUniversityEmployee(UniversityEmployee employee)
+        {
+            if (CheckTaxId(employee.TaxId))
+            {
+                Employees.Add(employee);
+                return true;
+            }
+            else
+            {
+                return false;
+            }    
+        }
+
+        private bool CheckTaxId(int taxId)
+        {
+            return taxId > 0;
         }
     }
 }

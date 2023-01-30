@@ -8,7 +8,10 @@
         {
             Course = course;
         }
+        public Teacher()
+        {
 
+        }
         public override string GetOfficialDuties()
         {
             return $"{Person.FirstName}{Person.LastName}, course is {Course.NameCourse}";

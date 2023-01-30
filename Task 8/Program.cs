@@ -1,11 +1,12 @@
 ﻿using Task_5;
 using Task_6;
+using Task_8;
 
 Teacher teacher1 = new Teacher(
     new Course("Math", "Math for everyone"),
     new Person(
         "Valeria",
-        "Romanovskaya",
+        "Kozlova",
         new Adress(78, 121, "Minskaya", "Minsk")),
     324521);
 
@@ -51,7 +52,7 @@ DegreeTeacher degreeteacher2 = new DegreeTeacher(
         "Irina",
         "Ivanova",
         new Adress(77, 341, "Repina", "Gomel")),
-    121189);
+    866655);
 
 List<UniversityEmployee> employees = new List<UniversityEmployee>
 {
@@ -117,7 +118,7 @@ DegreeTeacher newTeacher = new DegreeTeacher(
     new Course("German language", "How biology affects our life"),
     new Person(
         "Ivan",
-        "  Popov",
+        "Popov",
         new Adress(99, 5, "Repina", "Minsk")),
     222222);
 
@@ -200,6 +201,65 @@ foreach (Building building in targetBuildings)
 var popularLastName = employees
     .GroupBy(x => x.Person.LastName)
     .MaxBy(y => y.Count());
-    
-Console.WriteLine(popularLastName.Key + " " +  popularLastName.Count());
+
+Console.WriteLine(popularLastName.Key + " " + popularLastName.Count());
+
+try
+{
+    BSUIR.AddUniversityEmployee(new Teacher(new Course("Math", "Math for everyone"),
+        new Person(
+            "Valeria",
+            "Roskaya",
+            new Adress(78, 121, "Minskaya", "Minsk")),
+        -999554));
+}
+
+catch (Exception ex)
+{
+    Console.WriteLine("you wrote incorrect taxId! " + ex.Message);
+}
+
+try
+{
+    BSUIR.AddUniversityEmployee(new Teacher(new Course("Math", "Math for everyone"),
+        new Person(
+            "Valeria",
+            "Rjkkkkkkkkkks",
+            new Adress(78, 121, "Minskaya", "Minsk")),
+        5555));
+}
+
+catch(Exception ex)
+{
+    Console.WriteLine("you wrote so long name! " + ex.Message);
+}
+
+//Sort();
+
+var newSortedList = new List<UniversityEmployee>(BSUIR.Employees);
+newSortedList.Sort();
+
+foreach (UniversityEmployee employee in newSortedList)
+{
+    Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
+}
+
+// LINQ 6 task OrderBy
+
+var sortedFirstLastName = BSUIR.Employees
+    .OrderByDescending(x => x.Person.FullNameLength())
+    .ToList();
+
+foreach (UniversityEmployee employee in sortedFirstLastName)
+{
+    Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
+}
+
+
+BSUIR.Employees.Sort(new NamesComparer(true));
+
+foreach (UniversityEmployee employee in BSUIR.Employees)
+{
+    Console.WriteLine(employee.Person.FirstName + " " + employee.Person.LastName);
+}
 

@@ -28,12 +28,18 @@ namespace Task_6
             Rooms = rooms;
         }
 
+        public Building()
+        {
+
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is Building building
                 && building.NumberBuilding == NumberBuilding
                 && building.NameBuilding == NameBuilding;
         }
+
         public override int GetHashCode()
         {
             return NumberBuilding.GetHashCode() + NameBuilding.GetHashCode();
