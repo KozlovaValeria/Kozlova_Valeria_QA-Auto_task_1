@@ -41,6 +41,7 @@
             Street = street; 
             City = city;
         }
+
         public override bool Equals(object? obj)
         {
             return obj is Adress adress
@@ -49,6 +50,7 @@
                 && adress.Flat == Flat
                 && adress.Home == Home;
         }
+
         public override int GetHashCode()
         {
             return City.GetHashCode() + Street.GetHashCode() + Flat.GetHashCode() + Home.GetHashCode();

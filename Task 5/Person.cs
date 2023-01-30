@@ -13,13 +13,8 @@
             }
             set
             {
-                if(value == null)
-                {
-                    throw new ArgumentNullException(nameof(value));
-                }
-                _firstName = value;
-                CheckSumFirstLastName();
-                
+                CheckSumFirstLastName(value, _lastName);
+                _firstName = value;      
             }
         }
 
@@ -31,13 +26,8 @@
             }
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException(nameof(value));
-                }
+                CheckSumFirstLastName(value, _firstName);
                 _lastName = value;
-                CheckSumFirstLastName();
-          
             }
         }
        
@@ -63,21 +53,20 @@
             return FirstName.GetHashCode() + LastName.GetHashCode() + Adress.GetHashCode();
         }
 
-        public void CheckSumFirstLastName()
+        public void CheckSumFirstLastName(string value, string name)
         {
-            if (FirstName != null && LastName != null)
+            ArgumentNullException.ThrowIfNull(value, nameof(value));
+            if (name == null) { name = ""; }
+            if (value.Length + name.Length > 15)
             {
-                if (FullNameLength() > 15)
-                {
-                    throw new ArgumentException();
-                }
+                throw new ArgumentException("First Name + Last Name must be < 15");
             }
         }
+
         public int FullNameLength()
         {
             return FirstName.Length + LastName.Length;  
         }
-
     }
 }
 

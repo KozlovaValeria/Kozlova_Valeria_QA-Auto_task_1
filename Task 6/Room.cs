@@ -23,12 +23,14 @@
             _numberRoom = numberRoom;
             Appointment = appointment;
         }
+
         public override bool Equals(object? obj)
         {
             return obj is Room room
                 && room.NumberRoom == NumberRoom
                 && room.Appointment == Appointment;
         }
+
         public override int GetHashCode()
         {
             return NumberRoom.GetHashCode() + Appointment.GetHashCode();

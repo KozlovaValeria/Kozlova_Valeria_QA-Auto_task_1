@@ -9,6 +9,7 @@ namespace Task_8
         {
             IsReversed = isReversed;
         }  
+
         public int Compare(UniversityEmployee? leftItem, UniversityEmployee? rightItem)
         {
             if(leftItem == null || rightItem == null)
