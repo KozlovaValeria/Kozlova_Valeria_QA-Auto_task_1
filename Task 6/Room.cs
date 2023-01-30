@@ -20,7 +20,7 @@
         public string Appointment { get; set; }
         public Room(int numberRoom, string appointment)
         {
-            _numberRoom = numberRoom;
+            NumberRoom = numberRoom;
             Appointment = appointment;
         }
 
