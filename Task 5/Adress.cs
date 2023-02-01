@@ -36,8 +36,8 @@
         }  
         public Adress(int home, int flat, string street, string city)
         {
-            _home = home; 
-            _flat = flat;
+            Home = home; 
+            Flat = flat;
             Street = street; 
             City = city;
         }

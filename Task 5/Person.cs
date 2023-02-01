@@ -32,12 +32,17 @@
         }
        
         public Adress Adress { get; set; }
+        public object Value { get; }
 
         public Person(string firstName, string lastName, Adress adress)
         {
             FirstName = firstName;
             LastName = lastName;
             Adress = adress;  
+        }
+
+        public Person()
+        {
         }
 
         public override bool Equals(object? obj)

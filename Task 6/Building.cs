@@ -23,7 +23,7 @@ namespace Task_6
 
         public Building(int numberBuilding, string nameBuilding, List<Room> rooms)
         {
-            _numberBuilding = numberBuilding;
+            NumberBuilding = numberBuilding;
             NameBuilding = nameBuilding;
             Rooms = rooms;
         }
