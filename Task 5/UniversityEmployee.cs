@@ -14,7 +14,7 @@
             {
                 if (value == null)
                 {
-                    throw new ArgumentException("Person can't be NULL");
+                    throw new ArgumentNullException("Person can't be NULL");
                 }
                 _person = value;
             }
@@ -61,7 +61,7 @@
         public int CompareTo(UniversityEmployee? employee)
         {
             if (employee == null) return -1;
-            return employee.Person.FullNameLength().CompareTo(Person.FullNameLength());
+            return employee.Person.FullNameLength() - (Person.FullNameLength());
         }
     }
 }
